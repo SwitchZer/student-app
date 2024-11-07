@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  font-family: "DM Sans", "DM Sans Fallback" !important;
+}
+
+.text-black {
+  color: #0e0e0efa !important;
+}
+
+[data-floating-ui-portal] .bg-black {
+  background-color: transparent !important;
+}
