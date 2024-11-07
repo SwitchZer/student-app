@@ -5,10 +5,20 @@ interface NavItemProps {
   title: string;
   imageUrl: string;
   badgeCount?: number;
+  isActive?: boolean;
 }
 
-const NavItem: React.FC<NavItemProps> = ({ title, imageUrl, badgeCount }) => (
-  <div className="flex overflow-hidden gap-3 items-center px-5 text-black-102 py-3 mt-4 bg-white rounded-[20px] text-neutral-800 text-opacity-90">
+const NavItem: React.FC<NavItemProps> = ({
+  title,
+  imageUrl,
+  badgeCount,
+  isActive,
+}) => (
+  <div
+    className={`flex overflow-hidden gap-3 items-center px-5 text-black-102 py-3 mt-4 rounded-[20px] text-neutral-800 text-opacity-90 transition-colors duration-300 ease-in-out ${
+      isActive ? "bg-[#FFC849]" : "bg-white hover:bg-[#FEEBC8]"
+    }`}
+  >
     <Image
       loading="lazy"
       src={imageUrl}
