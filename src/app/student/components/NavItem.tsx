@@ -16,7 +16,7 @@ const NavItem: React.FC<NavItemProps> = ({
 }) => (
   <div
     className={`flex overflow-hidden gap-3 items-center px-5 text-black-102 py-3 mt-4 rounded-[20px] text-neutral-800 text-opacity-90 transition-colors duration-300 ease-in-out ${
-      isActive ? "bg-[#FFC849]" : "bg-white hover:bg-[#FEEBC8]"
+      isActive ? "bg-yellow-300" : "bg-white hover:bg-[#FEEBC8]"
     }`}
   >
     <Image
