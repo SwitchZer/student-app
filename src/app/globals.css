@@ -6,6 +6,10 @@
   font-family: "DM Sans", "DM Sans Fallback" !important;
 }
 
+body {
+  background-color: white !important;
+}
+
 .text-black {
   color: #0e0e0efa !important;
 }
