@@ -25,7 +25,10 @@ const config: Config = withMT({
         "dim-black": "#343434EB",
         "black-101": "#1A1414",
         "black-102": "#232323",
-        "gray-light-101": "#818181"
+        "black-103": "#0E0E0EFA",
+        "gray-light-101": "#818181",
+        "gray-light-102": "#797979",
+        "light-orange": "#FFC849"
       },
     },
   },
