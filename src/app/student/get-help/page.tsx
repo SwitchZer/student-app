@@ -1,7 +1,12 @@
-import React from "react";
+"use client";
+import SubmitTicket from "./components/SubmitTicket";
+import HelpCenter from "./components/HelpCenter";
 
-const page = () => {
-  return <div className="text-black-101 text-xl">page</div>;
-};
-
-export default page;
+export default function GetHelpPage() {
+  return (
+    <div className="flex flex-wrap flex-1 gap-10 items-start size-full max-md:max-w-full">
+      <SubmitTicket />
+      <HelpCenter />
+    </div>
+  );
+}

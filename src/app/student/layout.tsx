@@ -5,11 +5,8 @@ import React from "react";
 import NavItem from "./components/NavItem";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 
 const Sidebar: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const router = useRouter();
-
   return (
     <div className="flex">
       <aside className="flex flex-col items-center p-3 min-w-[240px] w-[369px] h-screen">

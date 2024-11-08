@@ -26,6 +26,7 @@ const config: Config = withMT({
         "black-101": "#1A1414",
         "black-102": "#232323",
         "black-103": "#0E0E0EFA",
+        "black-104": "#4C4C4CFA",
         "gray-light-101": "#818181",
         "gray-light-102": "#797979",
         "light-orange": "#FFC849"

@@ -41,7 +41,7 @@ const Select = ({
         variant={variant}
         label={label}
         placeholder={""}
-        className="rounded-2xl border-dim-gray"
+        // className="rounded-2xl border-dim-gray"
         labelProps={{
           className: "text-black",
         }}
