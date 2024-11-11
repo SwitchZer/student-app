@@ -1,8 +1,26 @@
 import Image from "next/image";
 import { Button } from "@material-tailwind/react";
 import WellbeingCard from "./WellbeingCard";
+import { useState } from "react";
+import FeelingDialog from "./FeelingModal";
 
 const WellbeingRecords = () => {
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [currentStep, setCurrentStep] = useState(0);
+
+  const handleOpenDialog = () => {
+    setCurrentStep(0);
+    setIsDialogOpen(true);
+  };
+
+  const handleCloseDialog = () => {
+    if (currentStep < 7) {
+      setCurrentStep((prev) => prev + 1);
+    } else {
+      setIsDialogOpen(false);
+    }
+  };
+
   const records = [
     {
       date: "18 Sep 2024, 23:23",
@@ -35,7 +53,10 @@ const WellbeingRecords = () => {
           className="p-7px p-4px p-7px p-4px"
         />
       </div>
-      <Button className="w-full py-[22px] pr-5 pl-[16px] bg-light-orange text-black-102 rounded-lg flex items-center mb-6">
+      <Button
+        onClick={handleOpenDialog}
+        className="w-full py-[22px] pr-5 pl-[16px] bg-light-orange text-black-102 rounded-lg flex items-center mb-6"
+      >
         <Image
           src="/images/student/smileplus.svg"
           alt="Start your check-in icon"
@@ -45,6 +66,12 @@ const WellbeingRecords = () => {
         />
         <span>Start your check-in</span>
       </Button>
+
+      <FeelingDialog
+        open={isDialogOpen}
+        onClose={handleCloseDialog}
+        step={currentStep}
+      />
       <div className="space-y-6">
         {records.map((record, index) => (
           <WellbeingCard key={index} {...record} />
