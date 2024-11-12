@@ -9,6 +9,14 @@ interface FeelingDialogProps {
   step: number;
 }
 
+const moodOptions = [
+  { label: "Great", emoji: "😊" },
+  { label: "Neutral", emoji: "😐" },
+  { label: "Positive", emoji: "😁" },
+  { label: "Negative", emoji: "😢" },
+  { label: "I need help", emoji: "😞" },
+] as const;
+
 const FeelingDialog: React.FC<FeelingDialogProps> = ({
   open,
   onClose,
@@ -77,13 +85,7 @@ const FeelingDialog: React.FC<FeelingDialogProps> = ({
           </div>
         ) : (
           <div className="grid grid-cols-3 gap-4">
-            {[
-              { label: "Great", emoji: "😊" },
-              { label: "Neutral", emoji: "😐" },
-              { label: "Positive", emoji: "😁" },
-              { label: "Negative", emoji: "😢" },
-              { label: "I need help", emoji: "😞" },
-            ].map(({ label, emoji }) => (
+            {moodOptions.map(({ label, emoji }) => (
               <Button
                 key={label}
                 className="flex flex-col items-center w-[120px] h-[120px] rounded-full border bg-white border-gray-300 hover:bg-gray-100 shadow-none"

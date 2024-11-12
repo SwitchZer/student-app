@@ -6,6 +6,8 @@ import {
   Button,
 } from "@material-tailwind/react";
 import Image from "next/image";
+import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
+import "react-circular-progressbar/dist/styles.css";
 
 interface ChallengeCardProps {
   label: string;
@@ -36,6 +38,8 @@ const ChallengeCard: React.FC<ChallengeCardProps> = ({
   showDetails,
   isJoined,
 }) => {
+  const progressPercentage = (Number(progress) / Number(total)) * 100;
+
   return (
     <Card className="p-5 my-2 min-w-[240px] w-[260px]">
       <CardBody className="p-0">
@@ -50,22 +54,33 @@ const ChallengeCard: React.FC<ChallengeCardProps> = ({
           </Typography>
         </div>
 
-        {/* Progress Circle */}
+        {/* Updated Progress Circle */}
         <div className="mt-4 text-center">
-          <div className="relative aspect-square bg-indigo-300 rounded-full p-2">
-            <div className="absolute inset-0 m-2 rounded-full bg-gradient-to-b from-white/95 to-blue-50/95">
-              <div className="flex flex-col items-center justify-center h-full">
-                <Image
-                  src={icon}
-                  alt={`${label} challenge icon`}
-                  width={64}
-                  height={64}
-                  className="object-contain"
-                />
-                <Typography className="mt-1 text-black-102">
-                  {progress}/{total}
-                </Typography>
-              </div>
+          <div className="relative w-32 h-32 mx-auto">
+            <CircularProgressbar
+              value={progressPercentage}
+              styles={buildStyles({
+                rotation: 0,
+                strokeLinecap: "round",
+                textSize: "16px",
+                pathTransitionDuration: 0.5,
+                pathColor: "#4F46E5", // indigo-600
+                textColor: "#1a1a1a",
+                trailColor: "#E5E7EB", // gray-200
+                backgroundColor: "#ffffff",
+              })}
+            />
+            <div className="absolute inset-0 flex flex-col items-center justify-center">
+              <Image
+                src={icon}
+                alt={`${label} challenge icon`}
+                width={40}
+                height={40}
+                className="object-contain mb-1"
+              />
+              <Typography className="text-sm text-black-102">
+                {progress}/{total}
+              </Typography>
             </div>
           </div>
         </div>
@@ -106,7 +121,7 @@ const ChallengeCard: React.FC<ChallengeCardProps> = ({
           {buttonText && buttonAction && !isJoined && (
             <Button
               onClick={buttonAction}
-              className="bg-black-103 text-neutral-200 rounded-full normal-case"
+              className="bg-black-103 text-white font-medium text-sm rounded-full normal-case"
             >
               {buttonText}
             </Button>
