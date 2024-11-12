@@ -8,8 +8,8 @@ import Link from "next/link";
 
 const Sidebar: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
-    <div className="flex">
-      <aside className="flex flex-col items-center p-3 min-w-[240px] w-[369px] h-screen">
+    <div className="flex min-h-screen">
+      <aside className="flex flex-col items-center p-3 min-w-[240px] w-[369px]">
         <div className="flex overflow-hidden flex-col flex-1 items-center p-5 max-w-full bg-[#F5F5F5] bg-opacity-80 rounded-[36px] w-[345px] h-full">
           <section className="flex flex-col gap-5 justify-center px-0 py-5 w-full bg-white rounded-3xl max-w-[305px]">
             <div className="flex flex-col px-5 w-full text-center">
