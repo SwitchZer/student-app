@@ -12,6 +12,12 @@ const moodIcons = {
   Positive: "",
 };
 
+const tagIcons = {
+  "My community": "/images/student/icon/community.svg",
+  "My friends": "/images/student/icon/friends.svg",
+  "My school": "/images/student/icon/school.svg",
+} as const;
+
 const WellbeingCard = ({ date, mood, tags }: WellbeingCardProps) => {
   return (
     <div
@@ -46,14 +52,14 @@ const WellbeingCard = ({ date, mood, tags }: WellbeingCardProps) => {
             key={tag}
             className="bg-white border border-gray-300 text-gray-700 rounded-full px-3 py-1 text-sm flex items-center"
           >
-            {/* <Image
-              src="/images/student/tag-icon.svg"
-              alt="Tag icon"
+            <Image
+              src={tagIcons[tag as keyof typeof tagIcons]}
+              alt={`${tag} icon`}
               width={16}
               height={16}
-              className="w-4 h-4 mr-2 p-0.67 px-0.67 opacity-0"
-            /> */}
-            {tag}
+              className="w-4 h-4 mr-2"
+            />
+            <span>{tag}</span>
           </button>
         ))}
       </div>
