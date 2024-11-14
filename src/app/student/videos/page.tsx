@@ -11,7 +11,7 @@ const VideoPage = () => {
   const dummyVideos = [
     {
       id: 1,
-      url: "/images/student/test.mp4",
+      url: "/images/student/test2.mp4",
       username: "@user123",
       description: "This is a cool video #trending",
       likes: "10.5K",
